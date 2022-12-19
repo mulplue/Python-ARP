@@ -1,17 +1,20 @@
-#!/usr/bin/env python
+"""
+    Implemented by Jiahe Chen.
+"""
 import os
 import sys
 import signal
 import logging
-from scapy.all import (
+from optparse import OptionParser
+from time import sleep
+from kamene.all import (
     get_if_hwaddr,
     getmacbyip,
     ARP,
     Ether,
     sendp
 )
-from optparse import OptionParser
-from time import sleep
+
 
 
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)  # Gets rid of IPV6 Error when importing scapy
