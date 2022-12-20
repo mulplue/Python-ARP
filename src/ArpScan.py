@@ -12,7 +12,7 @@ import netifaces
 def get_gateways():
     """Get gateway of this LAN
     Return:
-        gateway: Default gateway.
+        gateway: Default gateway
     """
     gateway = netifaces.gateways()['default'][netifaces.AF_INET][0]
     return gateway
@@ -20,7 +20,7 @@ def get_gateways():
 def ping_ip(ip_str):
     """Ping IP adress
     Args:
-        ip_str: String form of ipv4 address.
+        ip_str: String form of ipv4 address
     Return:
         None
     """

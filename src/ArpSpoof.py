@@ -42,7 +42,7 @@ def stop(signal,frame):
 if __name__ == '__main__':
     ## Get basic ip address from config.yaml
     f = open('../config.yaml')
-    config = yaml.load(f)
+    config = yaml.safe_load(f)
     TargetIp = config["Yuecheng's PC"]["IP"]
     GateWayAddr = config["Jiahe's Phone"]["IP"]
     ## When the connection get interupted, exit the script
