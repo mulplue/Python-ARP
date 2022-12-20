@@ -33,14 +33,18 @@ def build_packet(TargetIp, GateWayAddr):
     return pkt
 
 def stop(signal,frame):
+    """Stop attacking when the connection get interupted
+    Args:
+        Callback form for <signal.signal>.
+    """
     sys.exit(0)
 
 if __name__ == '__main__':
     ## Get basic ip address from config.yaml
     f = open('../config.yaml')
     config = yaml.load(f)
-    TargetIp = config["Jiahe's iPad"]["IP"]
-    GateWayAddr = config["Jiahe's iPad"]["IP"]
+    TargetIp = config["Yuecheng's PC"]["IP"]
+    GateWayAddr = config["Jiahe's Phone"]["IP"]
     ## When the connection get interupted, exit the script
     signal.signal(signal.SIGINT, stop)
     ## Build Ether packet
